@@ -106,7 +106,6 @@ class BulkRoleCache:  # lint-amnesty, pylint: disable=missing-class-docstring
 
     @classmethod
     def get_user_roles(cls, user):
-        print('BulkRoleCache get_user_roles: ', user.id, cls.CACHE_NAMESPACE, cls.CACHE_KEY)
         return get_cache(cls.CACHE_NAMESPACE)[cls.CACHE_KEY][user.id]
 
 
@@ -161,7 +160,6 @@ class RoleCache:
         res = False
         course_id_string = get_role_cache_course_key(course_id)
         course_roles = self._roles_by_course_id.get(course_id_string)
-        # import pdb; pdb.set_trace()
         if not course_roles:
             return False
         res = any(
